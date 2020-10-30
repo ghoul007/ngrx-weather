@@ -1,3 +1,4 @@
+import { BookmarksModule } from './pages/bookmarks-page/bookmarks.module';
 import { reducers } from './shared/state/app.reducer';
 import { HttpClientModule } from '@angular/common/http';
 import { HomePageModule } from './pages/home-page/home-page.module';
@@ -7,7 +8,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BookmarksPageComponent } from './pages/bookmarks-page/bookmarks-page.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -19,7 +19,6 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 @NgModule({
   declarations: [
     AppComponent,
-    BookmarksPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +30,8 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreRouterConnectingModule.forRoot({ serializer: CustomRouterSerializer }),
-    HomePageModule
+    HomePageModule,
+    BookmarksModule
   ],
   providers: [],
   bootstrap: [AppComponent]

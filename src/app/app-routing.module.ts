@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BookmarksPageComponent } from './pages/bookmarks-page/bookmarks-page.component';
+import { BookmarksPageComponent } from './pages/bookmarks-page/containers/bookmarks/bookmarks-page.component';
 import { HomePageComponent } from './pages/home-page/containers/home/home-page.component';
 
 

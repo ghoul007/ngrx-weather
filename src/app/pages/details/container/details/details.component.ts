@@ -1,3 +1,5 @@
+import { DetailsState } from './../../state/details.reducers';
+import { AppState } from './../../../../shared/state/app.reducer';
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -19,7 +21,7 @@ export class DetailsComponent implements OnInit {
 
   unit$: Observable<Units>;
 
-  constructor(private store: Store<any>) {
+  constructor(private store: Store<DetailsState>) {
   }
 
   ngOnInit() {

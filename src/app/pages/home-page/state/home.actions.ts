@@ -6,7 +6,8 @@ export const clearHomeState = createAction(
 );
 
 export const loadCurrentWeather = createAction(
-    '[HomePage] loadCurrentWeather'
+    '[HomePage] loadCurrentWeather',
+    props<{ query: string }>(),
 );
 
 export const loadCurrentWeatherById = createAction(

@@ -1,3 +1,4 @@
+import { ComponentsModule } from '../../shared/components/components.module';
 import { HomePageComponent } from './containers/home/home-page.component';
 import { RouterModule } from '@angular/router';
 import { HomeEffects } from './state/home.effects';
@@ -7,18 +8,23 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { homeReducer } from './state/home.reducers';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CurrentWeatherComponent } from './components/current-weather/current-weather.component';
+import { UnitComponent } from './components/unit/unit.component';
 
 
 
 @NgModule({
   declarations: [
-    HomePageComponent
+    HomePageComponent,
+    CurrentWeatherComponent,
+    UnitComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
+    ComponentsModule,
     StoreModule.forFeature('home', homeReducer),
     EffectsModule.forFeature([HomeEffects]),
   ]

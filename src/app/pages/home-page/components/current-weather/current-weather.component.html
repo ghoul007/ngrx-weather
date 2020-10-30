@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="card-body">
+
+        <h2>{{ cityName }}</h2>
+
+        <jv-detailed-weather [weather]="cityWeather.weather" [unit]="unit"></jv-detailed-weather>
+
+        <div class="card-actions">
+            <a class="card-link" (click)="onToggleBookmark()">
+                {{ isFavorite ? 'Remove' : 'Add' }}
+            </a>
+            <a class="card-link" routerLink="/details"
+                [queryParams]="{ lat: cityWeather.city.coord.lat, lon: cityWeather.city.coord.lon }">
+                see details
+            </a>
+        </div>
+
+    </div>
+</div>

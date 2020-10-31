@@ -9,13 +9,13 @@
   
       <div>
         <div>{{ weather.minTemp }}  - {{ weather.maxTemp }}  </div>
-        <div>Humidade: {{ weather.humidity }} %</div>
-        <div>Velocidade do vento: {{ weather.wind.speed }} m/s</div>
+        <div>Humidity: {{ weather.humidity }} %</div>
+        <div>Wind speed: {{ weather.wind.speed }} m/s</div>
       </div>
   
       <div>
-        <div>Nascer do sol: {{ unixToHourMinute(weather.sunrise) }}</div>
-        <div>Pôr do sol: {{ unixToHourMinute(weather.sunset) }}</div>
+        <div>Sunrise: {{ unixToHourMinute(weather.sunrise) }}</div>
+        <div>Sunset: {{ unixToHourMinute(weather.sunset) }}</div>
       </div>
     </div>
   </div>

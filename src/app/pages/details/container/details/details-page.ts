@@ -22,7 +22,7 @@ export class DetailsPage implements OnInit {
 
   unit$: Observable<Units>;
 
-  constructor(private store: Store<DetailsState>) {
+  constructor(private store: Store<AppState>) {
   }
 
   ngOnInit() {

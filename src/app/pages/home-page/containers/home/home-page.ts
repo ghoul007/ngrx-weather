@@ -100,7 +100,7 @@ export class HomePage implements OnInit {
   ngOnDestroy() {
     this.componentDestroyed$.next();
     this.componentDestroyed$.unsubscribe();
-    this.store.dispatch(fromHomeActions.clearHomeState());
+    // this.store.dispatch(fromHomeActions.clearHomeState());
     this.portalOutlet.detach();
   }
 

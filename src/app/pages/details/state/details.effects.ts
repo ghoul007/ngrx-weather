@@ -15,17 +15,23 @@ export class DetailsEffect {
     weatherDetails$ = createEffect(() => {
         return this.actions$.pipe(
             ofType(fromDetailsActions.loadWeatherDetails),
-            withLatestFrom(this.state.select(fromRouterActions.selectRouterQueryParams)),
-            mergeMap(([, queryParams]: [any, Params]) =>
-                    combineLatest([
-                        this.weatherService.getCityWeatherByCoord(queryParams.lat, queryParams.lon),
+            withLatestFrom(this.store.select(fromRouterActions.selectRouterQueryParams)),
+            mergeMap(([, queryParams]) =>
+                combineLatest([
+                    this.weatherService.getCityWeatherByCoord(queryParams.lat, queryParams.lon),
                     this.weatherService.getWeatherDetails(queryParams.lat, queryParams.lon),
-                    ]).pipe(
-                    map(entity => fromDetailsActions.loadWeatherDetailsSuccess({ entity })),
-                    catchError(error => of(fromDetailsActions.loadWeatherDetailsFailure())))
-            ),
-        );
+                ])),
+            catchError((err, caught$) => {
+                this.store.dispatch(fromDetailsActions.loadWeatherDetailsFailure());
+                return caught$;
+            }),
+            map(([current, daily]) => {
+                const entity = daily;
+                entity.city = { ...current.city, timeZone: daily.city.timeZone }
+                return fromDetailsActions.loadWeatherDetailsSuccess({ entity });
+            })
+        )
     });
 
-    constructor(private actions$: Actions, private state: Store, private weatherService: WeatherService) { }
+    constructor(private actions$: Actions, private store: Store, private weatherService: WeatherService) { }
 }

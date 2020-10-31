@@ -1,4 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
+import { Units } from '../../models/unit.enum';
 
 import * as fromConfigActions from './config.actions';
 
@@ -7,7 +8,7 @@ export interface ConfigState {
 }
 
 export const configInitialState: ConfigState = {
-  unit: 2,
+  unit: Units.Metric,
 }
 
 export const configReducer = createReducer(

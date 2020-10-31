@@ -1,7 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { Weather } from '../../models/weather.model';
-// import { Units } from '../../models/units.enum';
-// import { unitToSymbol } from '../../utils/units.utils';
+import { unitToSymbol } from '../../utils/units.utils';
 
 @Component({
   selector: 'jv-detailed-weather',
@@ -19,6 +18,6 @@ export class DetailedWeatherComponent {
   }
 
   get unitSymbol(): string {
-    return "5"; //unitToSymbol(this.unit);
+    return unitToSymbol(this.unit);
   }
 }

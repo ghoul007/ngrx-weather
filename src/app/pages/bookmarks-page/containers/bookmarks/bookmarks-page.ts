@@ -28,7 +28,7 @@ export class BookmarksPage implements OnInit {
 
     this.searchTypeaheadControl.valueChanges
       .subscribe((value: any) =>
-        this.store.dispatch(fromBookmarksActions.toggleBookmarks({ id: value.geonameid }))
+        this.store.dispatch(fromBookmarksActions.toggleBookmarkById({ id: value.geonameid }))
       );
 
   }

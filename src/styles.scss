@@ -4,7 +4,16 @@
 @import "../node_modules/bootstrap/scss/mixins";
 
 
- 
+.bg-dark{
+  background-color: #e0995e !important;
+}
+
+button.btn.btn-dark{
+
+  background: radial-gradient(black, transparent)!important;
+}
+
+
 
 a:not([href]), a:not([href]):hover {
   color: $primary;

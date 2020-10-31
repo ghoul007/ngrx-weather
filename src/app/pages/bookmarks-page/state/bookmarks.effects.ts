@@ -16,7 +16,7 @@ export class BookmarkEffects {
 
     effectName$ = createEffect(() => {
         return this.actions$.pipe(
-            ofType(fromBookmarkAction.toggleBookmarks),
+            ofType(fromBookmarkAction.toggleBookmarkById),
             withLatestFrom(this.store.pipe(select(fromBookmarkSelector.selectbookmarkList))),
             mergeMap(([{ id }, bookmarks]: [{ id: number }, Bookmark[]]) => {
                 if (bookmarks.some(b => b.id === id)) {

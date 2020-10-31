@@ -8,8 +8,8 @@ export const removeBookmarks = createAction(
 );
 
 
-export const toggleBookmarks = createAction(
-    '[Bookmarks] toggleBookmarks',
+export const toggleBookmarkById = createAction(
+    '[Bookmarks] toggleBookmarks By ID',
     props<{id: number}>()
 );
 

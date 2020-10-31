@@ -1,8 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { WeatherService } from './../../../shared/services/weather.service';
 import { Store } from '@ngrx/store';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { combineLatest, of } from 'rxjs';
+import { combineLatest, of, throwError } from 'rxjs';
 import { map, catchError, switchMap, withLatestFrom, mergeMap } from 'rxjs/operators';
 import * as fromDetailsActions from './details.actions';
 import * as fromRouterActions from '../../../shared/state/router/router.selector';
@@ -32,6 +33,26 @@ export class DetailsEffect {
             })
         )
     });
+    // version 2
+    // weatherDetails$ = createEffect(() => {
+    //     return this.actions$.pipe(
+    //         ofType(fromDetailsActions.loadWeatherDetails),
+    //         withLatestFrom(this.store.select(fromRouterActions.selectRouterQueryParams)),
+    //         mergeMap(([, queryParams]) =>
+    //             this.http.get('https://httpstat.us/500')),
+    //         catchError((err, $caught) => {
+    //             this.store.dispatch(fromDetailsActions.loadWeatherDetailsFailure());
+    //             return $caught;
 
-    constructor(private actions$: Actions, private store: Store, private weatherService: WeatherService) { }
+    //         }),
+    //         map(([current, daily]: any) => {
+    //             const entity = daily;
+    //             entity.city = { ...current.city, timeZone: daily.city.timeZone }
+    //             return fromDetailsActions.loadWeatherDetailsSuccess({ entity });
+    //         })
+    //     )
+    // });
+
+    constructor(private actions$: Actions, private store: Store, private weatherService: WeatherService,
+        private http: HttpClient) { }
 }

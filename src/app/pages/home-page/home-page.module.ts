@@ -1,5 +1,5 @@
 import { ComponentsModule } from '../../shared/components/components.module';
-import { HomePageComponent } from './containers/home/home-page.component';
+import { HomePage } from './containers/home/home-page';
 import { RouterModule } from '@angular/router';
 import { HomeEffects } from './state/home.effects';
 import { NgModule } from '@angular/core';
@@ -15,7 +15,7 @@ import { UnitComponent } from './components/unit/unit.component';
 
 @NgModule({
   declarations: [
-    HomePageComponent,
+    HomePage,
     CurrentWeatherComponent,
     UnitComponent
   ],

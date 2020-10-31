@@ -1,5 +1,5 @@
-import { UnitComponent } from './../../components/unit/unit.component';
-import { SelectCurrentWeatherLoading } from './../../state/home.selectors';
+import { UnitComponent } from '../../components/unit/unit.component';
+import { SelectCurrentWeatherLoading } from '../../state/home.selectors';
 import { ApplicationRef, Component, ComponentFactoryResolver, Injector, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
@@ -10,10 +10,10 @@ import * as fromHomeSelectors from '../../state/home.selectors'
 import { PortalOutlet, DomPortalOutlet, ComponentPortal } from '@angular/cdk/portal';
 @Component({
   selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  templateUrl: './home-page.html',
+  styleUrls: ['./home-page.scss']
 })
-export class HomePageComponent implements OnInit {
+export class HomePage implements OnInit {
   searchControl: FormControl;
   searchControlWithAutocomplete: FormControl;
   loading$: Observable<boolean>;

@@ -4,7 +4,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BookmarksPageComponent } from './containers/bookmarks/bookmarks-page.component';
+import { BookmarksPage } from './containers/bookmarks/bookmarks-page';
 import { BookmarkEffects } from './state/bookmarks.effects';
 import { reducer } from './state/bookmarks.reducers';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -12,8 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [BookmarksPageComponent],
-  exports: [BookmarksPageComponent],
+  declarations: [BookmarksPage],
+  exports: [BookmarksPage],
   imports: [
     CommonModule,
     RouterModule,

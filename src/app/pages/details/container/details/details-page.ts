@@ -1,5 +1,5 @@
-import { DetailsState } from './../../state/details.reducers';
-import { AppState } from './../../../../shared/state/app.reducer';
+import { DetailsState } from '../../state/details.reducers';
+import { AppState } from '../../../../shared/state/app.reducer';
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -10,10 +10,10 @@ import * as fromDetailsSelectors from  '../../state/details.selectors';
 import * as fromDetailsActions from  '../../state/details.actions';
 @Component({
   selector: 'app-details',
-  templateUrl: './details.component.html',
-  styleUrls: ['./details.component.scss']
+  templateUrl: './details-page.html',
+  styleUrls: ['./details-page.scss']
 })
-export class DetailsComponent implements OnInit {
+export class DetailsPage implements OnInit {
 
   details$: Observable<CityDailyWeather>;
   loading$: Observable<boolean>;

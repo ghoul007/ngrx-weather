@@ -12,10 +12,10 @@ import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-bookmarks-page',
-  templateUrl: './bookmarks-page.component.html',
-  styleUrls: ['./bookmarks-page.component.scss']
+  templateUrl: './bookmarks-page.html',
+  styleUrls: ['./bookmarks-page.scss']
 })
-export class BookmarksPageComponent implements OnInit {
+export class BookmarksPage implements OnInit {
 
   bookmarks$: Observable<Bookmark[]>;
   searchTypeaheadControl = new FormControl(undefined);

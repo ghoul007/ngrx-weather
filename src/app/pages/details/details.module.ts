@@ -6,17 +6,17 @@ import { StoreModule } from '@ngrx/store';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DailyWeatherComponent } from './component/daily-weather/daily-weather.component';
-import { DetailsComponent } from './container/details/details.component';
+import { DetailsPage } from './container/details/details-page';
 import { reducer } from './state/details.reducers';
 
 
 
 @NgModule({
-  declarations: [DailyWeatherComponent, DetailsComponent],
+  declarations: [DailyWeatherComponent, DetailsPage],
   imports: [
     CommonModule,
     RouterModule.forChild(
-      [{ path: '', component: DetailsComponent }]
+      [{ path: '', component: DetailsPage }]
     ),
     StoreModule.forFeature('details', reducer),
     EffectsModule.forFeature([DetailsEffect]),
